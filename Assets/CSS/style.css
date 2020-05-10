@@ -1,0 +1,33 @@
+h1 {
+    text-align: center;
+    background-color: darkblue;
+    color: white;
+}
+
+input {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    float: left;
+    width: 77%;
+    background: #f1f1f1;
+    margin-right: 5px;
+}
+
+#searchBtn {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    border-left: none;
+    cursor: pointer;
+}
+
+#searchBtn:hover {
+    background: #0b7dda;
+}
