@@ -39,3 +39,12 @@ input {
 .card {
     background-color: #2196F3;
 }
+
+.card-body {
+    color: white;
+    padding: 0.5rem;
+}
+
+.card-body p {
+    font-size: 0.9rem;
+}

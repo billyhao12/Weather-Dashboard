@@ -24,7 +24,6 @@ function searchWeather(city) {
     addNewCity(city);
 
     fetchWeather(city);
-    fetchForecast(city);
 
 }
 
@@ -44,6 +43,7 @@ function fetchWeather(city) {
 
         displayWeather(response);
         fetchUV(response.coord);
+        fetchForecast(response.coord);
 
     });
 
@@ -113,13 +113,15 @@ function displayUVData(cityData) {
 }
 
 // Fetch forecast from the API
-function fetchForecast(city) {
+function fetchForecast(coords) {
     var queryParams = $.param({
-        q: city,
+        lat: coords.lat,
+        lon: coords.lon,
+        exclude: 'current,minutely,hourly',
         appid: '08380159329a3e38fda792a63e0fc216'
     });
 
-    var queryURL = 'http://api.openweathermap.org/data/2.5/forecast?' + queryParams + '&units=imperial';
+    var queryURL = 'https://api.openweathermap.org/data/2.5/onecall?' + queryParams + '&units=imperial';
 
     $.ajax({
         url: queryURL,
@@ -129,7 +131,14 @@ function fetchForecast(city) {
 
 // Display the city data
 function displayForecast(forecastData) {
-    console.log(forecastData);
+
+    for (var i = 1; i < 6; i++) {
+        $('#card-title-' + i).text(moment().add(i, 'days').format('l'));
+        $('#icon-' + i).attr('src', 'http://openweathermap.org/img/w/' + forecastData.daily[i].weather[0].icon + '.png');
+
+        $('#temp-' + i).text('Temp: ' + forecastData.daily[i].temp.max + ' °F');
+        $('#humid-' + i).text('Humidity: ' + forecastData.daily[i].humidity + '%');
+    }
 }
 
 function addNewCity(city) {
