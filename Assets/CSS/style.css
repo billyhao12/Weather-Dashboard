@@ -35,3 +35,7 @@ input {
 #cityWeather {
     border: 2px solid grey;
 }
+
+.card {
+    background-color: #2196F3;
+}

@@ -115,10 +115,11 @@ function displayUVData(cityData) {
 // Fetch forecast from the API
 function fetchForecast(city) {
     var queryParams = $.param({
+        q: city,
         appid: '08380159329a3e38fda792a63e0fc216'
     });
 
-    var queryURL = 'http://api.openweathermap.org/data/2.5/forecast?' + queryParams;
+    var queryURL = 'http://api.openweathermap.org/data/2.5/forecast?' + queryParams + '&units=imperial';
 
     $.ajax({
         url: queryURL,
@@ -128,7 +129,7 @@ function fetchForecast(city) {
 
 // Display the city data
 function displayForecast(forecastData) {
-
+    console.log(forecastData);
 }
 
 function addNewCity(city) {
