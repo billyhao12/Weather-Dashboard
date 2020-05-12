@@ -31,3 +31,7 @@ input {
 #searchBtn:hover {
     background: #0b7dda;
 }
+
+#cityWeather {
+    border: 2px solid grey;
+}
