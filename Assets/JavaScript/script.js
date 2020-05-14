@@ -66,7 +66,7 @@ function fetchWeather(city) {
         appid: '08380159329a3e38fda792a63e0fc216'
     });
 
-    var queryURL = 'http://api.openweathermap.org/data/2.5/weather?' + queryParams + '&units=imperial';
+    var queryURL = 'https://api.openweathermap.org/data/2.5/weather?' + queryParams + '&units=imperial';
 
     $.ajax({
         url: queryURL,
@@ -89,7 +89,7 @@ function displayWeather(cityData) {
     currentWeatherTitle.text(cityData.name + ' (' + moment().format('l') + ')' + ' ');
     $('#cityWeather').prepend(currentWeatherTitle);
 
-    currentIcon.attr('src', 'http://openweathermap.org/img/w/' + cityData.weather[0].icon + '.png');
+    currentIcon.attr('src', 'https://openweathermap.org/img/w/' + cityData.weather[0].icon + '.png');
     currentWeatherTitle.append(currentIcon);
 
     currentTemp.text('Temperature: ' + cityData.main.temp + ' °F');
@@ -111,7 +111,7 @@ function fetchUV(coords) {
         lon: coords.lon
     });
 
-    var queryURL = 'http://api.openweathermap.org/data/2.5/uvi?' + queryParams;
+    var queryURL = 'https://api.openweathermap.org/data/2.5/uvi?' + queryParams;
 
     $.ajax({
         url: queryURL,
@@ -166,7 +166,7 @@ function displayForecast(forecastData) {
 
     for (var i = 1; i < 6; i++) {
         $('#card-title-' + i).text(moment().add(i, 'days').format('l'));
-        $('#icon-' + i).attr('src', 'http://openweathermap.org/img/w/' + forecastData.daily[i].weather[0].icon + '.png');
+        $('#icon-' + i).attr('src', 'https://openweathermap.org/img/w/' + forecastData.daily[i].weather[0].icon + '.png');
 
         $('#temp-' + i).text('Temp: ' + forecastData.daily[i].temp.max + ' °F');
         $('#humid-' + i).text('Humidity: ' + forecastData.daily[i].humidity + '%');
