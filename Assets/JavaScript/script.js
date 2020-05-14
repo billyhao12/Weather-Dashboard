@@ -16,7 +16,26 @@ var cities = JSON.parse(localStorage.getItem(cacheKey));
 
 if (!cities) {
     cities = [];
+} else {
+    fetchWeather(cities[(cities.length) - 1]);
 }
+
+// Displays a history of previous search terms. Clicking on them brings up the city's current weather and forecast.
+cities.forEach(function(item, index) {
+    $('#history-' + index).text(item);
+
+    $('#history-' + index).on('click', function() {
+        fetchWeather(item);
+    })
+})
+
+// Passes user's input into the searchWeather function
+$('form').submit(function (event) {
+    event.preventDefault();
+    city = $('input').val();
+
+    searchWeather(city);
+})
 
 // Starting point
 function searchWeather(city) {
@@ -27,8 +46,21 @@ function searchWeather(city) {
 
 }
 
+function addNewCity(city) {
+
+    if (cities.indexOf(city) === -1) {
+
+        cities.push(city);
+        localStorage.setItem(cacheKey, JSON.stringify(cities));
+
+    }
+}
+
 // Fetch weather from the API
 function fetchWeather(city) {
+
+    console.log(city);
+
     var queryParams = $.param({
         q: city,
         appid: '08380159329a3e38fda792a63e0fc216'
@@ -140,21 +172,3 @@ function displayForecast(forecastData) {
         $('#humid-' + i).text('Humidity: ' + forecastData.daily[i].humidity + '%');
     }
 }
-
-function addNewCity(city) {
-
-    if (cities.indexOf(city) === -1) {
-
-        cities.push(city);
-        localStorage.setItem(cacheKey, JSON.stringify(cities));
-
-    }
-}
-
-// Passes user's input into the searchWeather function
-$('form').submit(function (event) {
-    event.preventDefault();
-    city = $('input').val();
-
-    searchWeather(city);
-})
