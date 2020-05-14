@@ -20,14 +20,26 @@ if (!cities) {
     fetchWeather(cities[(cities.length) - 1]);
 }
 
-// Displays a history of previous search terms. Clicking on them brings up the city's current weather and forecast.
-cities.forEach(function(item, index) {
-    $('#history-' + index).text(item);
+renderHistory();
 
-    $('#history-' + index).on('click', function() {
-        fetchWeather(item);
+// Displays a history of previous search terms.
+// Clicking on a term brings up the city's current weather and forecast.
+function renderHistory() {
+
+    cities.forEach(function(item) {
+        var newItem = $('<li>' + item + '</li>');
+        $('#history').prepend(newItem);
+
+        newItem.on('click', function() {
+            fetchWeather(item);
+        })
     })
-})
+
+}
+
+function clearHistory() {
+    $('#history').empty();
+}
 
 // Passes user's input into the searchWeather function
 $('form').submit(function (event) {
@@ -35,6 +47,9 @@ $('form').submit(function (event) {
     city = $('input').val();
 
     searchWeather(city);
+
+    clearHistory();
+    renderHistory();
 })
 
 // Starting point
