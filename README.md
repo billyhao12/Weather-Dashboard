@@ -26,7 +26,7 @@ Enter a city in the search bar to display weather information.
 
 ## Credits
 
-I created this web page with the support of instructional staff at the University of Washington's Coding Boot Camp as well as my fellow colleagues.
+I created this web page with the support of instructional staff and colleagues from the University of Washington's Coding Boot Camp.
 
 ## License
 
