@@ -10,8 +10,6 @@ This weather dashboard displays a city's current weather conditions as well as a
 * [Usage](#usage)
 * [Credits](#credits)
 * [License](#license)
-* [Contributing](#contributing)
-* [Tests](#tests)
 * [Questions](#questions)
 
 ## Installation
@@ -30,11 +28,7 @@ I created this web page with the support of instructional staff and colleagues f
 
 ## License
 
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
-
-## Contributing
-
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](https://www.contributor-covenant.org/)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## Questions
 
