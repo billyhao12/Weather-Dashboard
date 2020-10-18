@@ -1,20 +1,17 @@
 # Weather Dashboard
 
+Deployed Application: https://billyhao12.github.io/Weather-Dashboard/
+
 ## Description
 
 This weather dashboard displays a city's current weather conditions as well as a 5-day forecast. Previous searches are stored in localStorage and can be revisited by clicking on the queries that appear below the search bar.
 
 ## Table of Contents
 
-* [Installation](#installation)
 * [Usage](#usage)
 * [Credits](#credits)
 * [License](#license)
 * [Questions](#questions)
-
-## Installation
-
-Access the deployed application [here](https://billyhao12.github.io/Weather-Dashboard/).
 
 ## Usage
 
