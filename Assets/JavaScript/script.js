@@ -10,6 +10,7 @@ var currentWeatherTitle = $('#currentWeatherTitle'),
     currentUV = $('#currentUV');
 
 var currentUVNum = $('<span></span>');
+currentUVNum.css("color", "white");
 
 // Get starting data from local storage if present
 var cities = JSON.parse(localStorage.getItem(cacheKey));
